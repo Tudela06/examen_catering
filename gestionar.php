@@ -24,3 +24,12 @@ if (!isset($_SESSION['servicios'])) {
 function incrementarVersion() {
     $_SESSION['numero_version']++;
 }
+
+// ===== APARTADO 8: Eliminar todo =====
+$accion = $_POST['accion'] ?? $_GET['accion'] ?? '';
+if ($accion === 'eliminar_todo') {
+    $_SESSION['servicios'] = [];
+    $_SESSION['numero_version'] = 1;
+    header('Location: ' . $_SERVER['PHP_SELF']);
+    exit;
+}
